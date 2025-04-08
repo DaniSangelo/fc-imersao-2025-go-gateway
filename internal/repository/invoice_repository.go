@@ -14,7 +14,7 @@ func NewInvoiceRepository(db *sql.DB) *InvoiceRepository {
 	return &InvoiceRepository{db: db}
 }
 
-func (r *InvoiceRepository) SaveInvoice(invoice *domain.Invoice) error {
+func (r *InvoiceRepository) Save(invoice *domain.Invoice) error {
 	_, err := r.db.Exec(`
 	INSERT INTO invoices
 	(
