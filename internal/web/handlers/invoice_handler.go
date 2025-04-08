@@ -11,11 +11,13 @@ import (
 )
 
 type InvoiceHandler struct {
-	service service.InvoiceService
+	service *service.InvoiceService
 }
 
-func NewInvoiceHandler(service service.InvoiceService) *InvoiceHandler {
-	return &InvoiceHandler{service: service}
+func NewInvoiceHandler(service *service.InvoiceService) *InvoiceHandler {
+	return &InvoiceHandler{
+		service: service,
+	}
 }
 
 func (h *InvoiceHandler) Create(w http.ResponseWriter, r *http.Request) {
